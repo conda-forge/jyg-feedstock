@@ -1,7 +1,7 @@
 About jyg
 =========
 
-Home: https://github.com/sathbeds/jyg
+Home: https://github.com/deathbeds/jyg
 
 Package license: BSD-3-Clause
 
