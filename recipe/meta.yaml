@@ -1,4 +1,4 @@
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: jyg
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jyg/jyg-{{ version }}.tar.gz
-  sha256: 8f65eadc0eb79f4169f43909b7401996ba30a1d46361ddafd92668c8c76901b6
+  sha256: 44c9ca5a10551689598a17bbd859bbb2ea374ce82f7c30ea72ec05248c02d704
 
 build:
   noarch: python
@@ -23,8 +23,8 @@ requirements:
     - python >=3.8
   run:
     - jinja2 >=3.1
-    - jupyter_core >=4.7.1
-    - python >=3.8
+    - jsonschema
+    - jupyter-core>=4.7.1
 
 test:
   imports:
@@ -46,7 +46,7 @@ test:
     - pip
 
 about:
-  home: https://github.com/sathbeds/jyg
+  home: https://github.com/deathbeds/jyg
   summary: run Jupyter browser client commands from a CLI, REST API, or other browser windows
   license: BSD-3-Clause
   doc_url: https://jyg.rtfd.io
