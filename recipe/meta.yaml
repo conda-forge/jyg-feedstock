@@ -5,13 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jyg/jyg-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jyg/jyg-{{ version }}.tar.gz
   sha256: 44c9ca5a10551689598a17bbd859bbb2ea374ce82f7c30ea72ec05248c02d704
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - jupyter-jyg = jyg.jygapp:main
     - jyg = jyg.jygapp:main
@@ -20,12 +20,12 @@ requirements:
   host:
     - flit-core >=3.7.1,<4
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - jinja2 >=3.1
     - jsonschema
     - jupyter_core >=4.7.1
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -45,6 +45,7 @@ test:
     - jupyterlab
     - m2-grep  # [win]
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/deathbeds/jyg
