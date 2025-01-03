@@ -9,9 +9,10 @@ source:
   sha256: 44c9ca5a10551689598a17bbd859bbb2ea374ce82f7c30ea72ec05248c02d704
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
   number: 1
+  noarch: python
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   entry_points:
     - jupyter-jyg = jyg.jygapp:main
     - jyg = jyg.jygapp:main
@@ -26,6 +27,8 @@ requirements:
     - jsonschema
     - jupyter_core >=4.7.1
     - python >={{ python_min }}
+  run_constrained:
+    - jupyterlab <4
 
 test:
   imports:
@@ -35,7 +38,7 @@ test:
     - jupyter-jyg --help
     - jyg --help
     - python -m jyg --help
-    - jupyter labextension list
+    - jupyter labextension list --debug
     - jupyter server extension list
     - jupyter labextension list 1>labextensions 2>&1
     - jupyter server extension list 1>server_extensions 2>&1
